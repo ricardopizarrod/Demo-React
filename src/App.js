@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ListItems from './ListItems'
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +11,31 @@ class App extends React.Component {
         text: '',
         key: ''
       }
+    }
+    this.handleInput = this.handleInput.bind(this);
+    this.addItem = this.addItem.bind(this);
+  }
+  handleInput(e) {
+    this.setState({
+      currentItem: {
+        text: e.target.value,
+        key: Date.now()
+      }
+    })
+  }
+  addItem(e) {
+    e.preventDefault();
+    // On the add button the page doesn't get refreshed
+    const newItem = this.state.currentItem;
+    if (newItem.text !== "") {
+      const newItems = [...this.state.items, newItem];
+      this.setState({
+        items: newItems,
+        currentItem: {
+          text: '',
+          key: ''
+        }
+      })
     }
   }
   render() {
@@ -23,6 +49,7 @@ class App extends React.Component {
             <button type="submit">Agregar</button>
           </form>
         </header>
+        <ListItems items={this.state.items}></ListItems>
       </div>
     )
   }
