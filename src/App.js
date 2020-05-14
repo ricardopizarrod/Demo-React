@@ -1,6 +1,11 @@
 import React from 'react';
 import './App.css';
 import ListItems from './ListItems'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faTrash);
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +19,7 @@ class App extends React.Component {
     }
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.deletItem = this.deletItem.bind(this);
   }
   handleInput(e) {
     this.setState({
@@ -37,6 +43,13 @@ class App extends React.Component {
         }
       })
     }
+  }
+  deletItem(key) {
+    const filteredItems = this.state.items.filtered(item =>
+      item.key !== key);
+    this.setState({
+      items: filteredItems
+    })
   }
   render() {
     return (

@@ -8,4 +8,9 @@
 }
 .list p{
     padding: 10px;
+    position: relative;
+}
+.list p span{
+    position: absolute;
+    right: 10px;
 }
