@@ -17,9 +17,25 @@ class App extends React.Component {
         key: ''
       }
     }
-    this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
-    this.deletItem = this.deletItem.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
+  }
+  addItem(e) {
+    e.preventDefault();
+    // On the add button the page doesn't get refreshed
+    const newItem = this.state.currentItem;
+    if (newItem.text !== "") {
+      const items = [...this.state.items, newItem];
+      this.setState({
+        items: items,
+        currentItem: {
+          text: '',
+          key: ''
+        }
+      })
+    }
   }
   handleInput(e) {
     this.setState({
@@ -29,26 +45,32 @@ class App extends React.Component {
       }
     })
   }
-  addItem(e) {
-    e.preventDefault();
-    // On the add button the page doesn't get refreshed
-    const newItem = this.state.currentItem;
-    if (newItem.text !== "") {
-      const newItems = [...this.state.items, newItem];
+  /*   deleteItem(key) {
+      const filteredItems = this.state.items.filtered(item =>
+        item.key !== key);
       this.setState({
-        items: newItems,
-        currentItem: {
-          text: '',
-          key: ''
-        }
+        items: filteredItems
       })
-    }
-  }
-  deletItem(key) {
-    const filteredItems = this.state.items.filtered(item =>
+    } */
+  deleteItem(key) {
+    const filteredItems = this.state.items.filter(item =>
       item.key !== key);
     this.setState({
       items: filteredItems
+    })
+
+  }
+  setUpdate(text, key) {
+    console.log("items:" + this.state.items);
+    const items = this.state.items;
+    items.map(item => {
+      if (item.key === key) {
+        console.log(item.key + "    " + key)
+        item.text = text;
+      }
+    })
+    this.setState({
+      items: items
     })
   }
   render() {
@@ -56,15 +78,16 @@ class App extends React.Component {
       <div className="App">
         <header>
           <form id="to-do-form" onSubmit={this.addItem}>
-            <input type="text" placeholder="Ingresar Producto"
-              value={this.state.currentItem.text}
-              onChange={this.handleInput} />
+            <input type="text" placeholder="Ingresar Producto" value={this.state.currentItem.text} onChange={this.handleInput}></input>
             <button type="submit">Agregar</button>
           </form>
+          <p>{this.state.items.text}</p>
+
+          <ListItems items={this.state.items} deleteItem={this.deleteItem} setUpdate={this.setUpdate} />
+
         </header>
-        <ListItems items={this.state.items}></ListItems>
       </div>
-    )
+    );
   }
 }
 export default App;
