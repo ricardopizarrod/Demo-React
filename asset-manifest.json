@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ricardopizarrod/Demo-React/static/css/main.619f34b3.chunk.css",
+    "main.js": "/ricardopizarrod/Demo-React/static/js/main.1637b95c.chunk.js",
+    "main.js.map": "/ricardopizarrod/Demo-React/static/js/main.1637b95c.chunk.js.map",
+    "runtime-main.js": "/ricardopizarrod/Demo-React/static/js/runtime-main.5d9292a8.js",
+    "runtime-main.js.map": "/ricardopizarrod/Demo-React/static/js/runtime-main.5d9292a8.js.map",
+    "static/js/2.81de4433.chunk.js": "/ricardopizarrod/Demo-React/static/js/2.81de4433.chunk.js",
+    "static/js/2.81de4433.chunk.js.map": "/ricardopizarrod/Demo-React/static/js/2.81de4433.chunk.js.map",
+    "index.html": "/ricardopizarrod/Demo-React/index.html",
+    "precache-manifest.706150ba0605259798c17030c5101679.js": "/ricardopizarrod/Demo-React/precache-manifest.706150ba0605259798c17030c5101679.js",
+    "service-worker.js": "/ricardopizarrod/Demo-React/service-worker.js",
+    "static/css/main.619f34b3.chunk.css.map": "/ricardopizarrod/Demo-React/static/css/main.619f34b3.chunk.css.map",
+    "static/js/2.81de4433.chunk.js.LICENSE.txt": "/ricardopizarrod/Demo-React/static/js/2.81de4433.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d9292a8.js",
+    "static/js/2.81de4433.chunk.js",
+    "static/css/main.619f34b3.chunk.css",
+    "static/js/main.1637b95c.chunk.js"
+  ]
+}
